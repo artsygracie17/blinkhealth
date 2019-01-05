@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Blink Health Frontend take home.
 
-## Available Scripts
+## Where to start?
 
-In the project directory, you can run:
+Open index.html in your favorite code editor and in your browser. You should be able to complete the tasks directly in the html file.
 
-### `npm start`
+## What are we building here?
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We are going to build a Github user browser based on this outline:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+1.  a search input for looking up Github users
+2.  a ui for displaying the search results
+3.  each result should be clickable and when clicked should display the user's repositories
+4.  When viewing the user repositories, each should display the number of open pull requests
 
-### `npm test`
+## FAQ's
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### What am I evaluated on?
 
-### `npm run build`
+Write code that you are happy with and feel comfortable talking about. Focus on getting to fully-working solution.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Can I use libraries?
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Sure, just add what you need to the index file.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Why React?
 
-### `npm run eject`
+Its what we use in our products, but if you want to use vanilla JS, or another library or framework, go ahead!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Do I need to style my app?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+We don't expect a polished design but some style would earn you extra points. You can use a css framework or write style from scratch.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Which browser should i use?
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Using the latest Chrome version should cover all modern Javascript syntax.
 
-## Learn More
+#### Where do i find the github API docs
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- the documentation is here: https://developer.github.com/v3/
+- you can get a list of the available endpoints here: https://api.github.com/
+- a search endpoint to get you started: https://api.github.com/search/users?q=blinkhealth
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### I'm done, what now?
 
-### Code Splitting
+Zip your code and send it over to mike.zevoteck@blinkhealth.com
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### This doesn't make sense at all!
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+If something is unlcear, broken or if you have any questions or feedback, please reach out to yuval@blinkhealth.com.
