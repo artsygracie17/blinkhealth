@@ -4825,9 +4825,21 @@ function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSearchbarSubmit", function (searchTerm) {
+      console.log('in handlesubmit: ', searchTerm);
+      var urlRequest = "https://api.github.com/search/users?q=".concat(searchTerm);
+      fetch(urlRequest).then(function (res) {
+        return res.json();
+      }).then(function (results) {
+        var users = results.items;
+        console.log('users: ', users);
+      });
+    });
+
     _this.state = {
       searchTerm: '',
-      results: []
+      users: [],
+      currentUser: {}
     };
     return _this;
   }
@@ -4836,32 +4848,34 @@ function (_Component) {
     key: "render",
     value: function render() {
       var searchTerm = this.state.searchTerm;
-      var handleSearchTermChange = this.handleSearchTermChange;
+      var handleSearchTermChange = this.handleSearchTermChange,
+          handleSearchbarSubmit = this.handleSearchbarSubmit;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 47
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 48
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 49
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
         searchTerm: searchTerm,
         onChange: handleSearchTermChange,
+        onSubmit: handleSearchbarSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 50
         },
         __self: this
       }))));

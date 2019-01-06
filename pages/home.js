@@ -13,7 +13,8 @@ export default class Home extends Component {
         super(props)
         this.state = {
             searchTerm: '',
-            results: []
+            users: [],
+            currentUser: {}
         }
     }
 
@@ -23,9 +24,25 @@ export default class Home extends Component {
         })
     }
 
+    handleSearchbarSubmit = (searchTerm) => {
+        console.log('in handlesubmit: ', searchTerm)
+        let urlRequest = `https://api.github.com/search/users?q=${searchTerm}`
+        fetch(urlRequest)
+            .then(res => res.json())
+            .then(results => {
+                const users = results.items
+                console.log('users: ', users)
+            })
+    }
+
     render () {
-        const { searchTerm } = this.state
-        const { handleSearchTermChange } = this
+        const { 
+            searchTerm 
+        } = this.state
+        const { 
+            handleSearchTermChange,
+            handleSearchbarSubmit
+        } = this
         return (
             <Grid>
                 <Row center='xs'>
@@ -33,6 +50,7 @@ export default class Home extends Component {
                         <Searchbar
                             searchTerm={searchTerm}
                             onChange={handleSearchTermChange}
+                            onSubmit={handleSearchbarSubmit}
                         />
                     </Col>
                 </Row>
