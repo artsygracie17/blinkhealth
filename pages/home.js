@@ -1,11 +1,17 @@
 /* Third Party */
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-styled-flexboxgrid'
+import styled from 'styled-components'
 
 /* First Party */
 import Searchbar from '../components/Searchbar' 
+import UserCard from '../components/UserCard'
 
 const githubToken = "access_token=c1c6964129310b0daa090a19c4dfdeedda2bd7b2";
+
+const PaddedCol = styled(Col)`
+    padding: 0rem 1.5rem;
+`
 
 export default class Home extends Component {
 
@@ -31,13 +37,16 @@ export default class Home extends Component {
             .then(res => res.json())
             .then(results => {
                 const users = results.items
-                console.log('users: ', users)
+                this.setState({
+                    users: users
+                })
             })
     }
 
     render () {
         const { 
-            searchTerm 
+            searchTerm,
+            users
         } = this.state
         const { 
             handleSearchTermChange,
@@ -53,6 +62,18 @@ export default class Home extends Component {
                             onSubmit={handleSearchbarSubmit}
                         />
                     </Col>
+                </Row>
+                <Row>
+                    { users.map((user, i) => {
+                        console.log(user)
+                        return (
+                            <PaddedCol xs={6} sm={4} md={3} lg={2} key={i}>
+                                <UserCard
+                                    user={user}
+                                />
+                            </PaddedCol>
+                        )
+                    })}
                 </Row>
             </Grid>
         )
