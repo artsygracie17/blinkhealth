@@ -64,7 +64,7 @@ export default class Home extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    { users.map((user, i) => {
+                    { users && users.map((user, i) => {
                         console.log(user)
                         return (
                             <PaddedCol xs={6} sm={4} md={3} lg={2} key={i}>

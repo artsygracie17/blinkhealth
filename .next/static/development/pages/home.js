@@ -5064,7 +5064,7 @@ function (_Component) {
           lineNumber: 66
         },
         __self: this
-      }, users.map(function (user, i) {
+      }, users && users.map(function (user, i) {
         console.log(user);
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PaddedCol, {
           xs: 6,
