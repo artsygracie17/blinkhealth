@@ -42,20 +42,18 @@ const Username = styled.a`
 
 export default class UserCard extends React.Component {
     render () {
-        const { user } = this.props
+        const { user, cardClick } = this.props
         const avatarUrl = user.avatar_url
         const username = user.login
         const userUrl = user.html_url
         const repoRequestUrl = user.repos_url
-
-        console.log('user: ', user)
 
         return (
             <UserCardContainer>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
                 rel="stylesheet"/>
                 <UserCardBody> 
-                    <UserImg src={avatarUrl}></UserImg>
+                    <UserImg src={avatarUrl} onClick={cardClick}></UserImg>
                     <Username href={userUrl} target='_blank'>{username}</Username>
                 </UserCardBody>
             </UserCardContainer>
@@ -64,9 +62,11 @@ export default class UserCard extends React.Component {
 }
 
 UserCard.defaultProps = {
-    user: {}
+    user: {},
+    cardClick: () => {}
 }
 
 UserCard.propTypes = {
-    user: PropTypes.object
+    user: PropTypes.object,
+    cardClick: PropTypes.func
 }

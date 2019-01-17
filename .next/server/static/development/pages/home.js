@@ -93,6 +93,165 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/RepoCard.js":
+/*!********************************!*\
+  !*** ./components/RepoCard.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return RepoCard; });
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/gracieliu-fang/Code/blinkhealth/components/RepoCard.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n    color: gray;\n    padding: 1rem;\n    text-decoration: none;\n\n    &:hover {\n        cursor: pointer;\n        text-decoration: underline;\n    }\n\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n    border-radius: 0.2rem 0.2rem 0rem 0rem;\n    opacity: 1;\n    width: 100%;\n    height: 10rem;\n\n    &:hover {\n        cursor: pointer;\n    }\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n    border: 1px solid lightgray;\n    border-radius: 0.2rem;\n    padding: 0rem;\n    width: 100%;\n    height: 100%;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 12rem;\n    margin: 2rem;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+/* Third Party */
+
+
+
+var RepoCardContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject());
+var RepoCardBody = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject2());
+var RepoImg = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.img(_templateObject3());
+var Reponame = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.a(_templateObject4());
+
+var RepoCard =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(RepoCard, _React$Component);
+
+  function RepoCard() {
+    _classCallCheck(this, RepoCard);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(RepoCard).apply(this, arguments));
+  }
+
+  _createClass(RepoCard, [{
+    key: "render",
+    value: function render() {
+      var repo = this.props.repo;
+      var avatarUrl = repo.avatar_url;
+      var reponame = repo.login;
+      var repoUrl = repo.html_url;
+      var repoRequestUrl = Repo.repos_url;
+      console.log('Repo: ', Repo);
+      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardContainer, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 54
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
+        href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+        rel: "stylesheet",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 55
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardBody, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 57
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoImg, {
+        src: avatarUrl,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 58
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Reponame, {
+        href: repoUrl,
+        target: "_blank",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 59
+        },
+        __self: this
+      }, reponame)));
+    }
+  }]);
+
+  return RepoCard;
+}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
+
+
+RepoCard.defaultProps = {
+  repo: {}
+};
+RepoCard.propTypes = {
+  repo: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.object
+};
+
+/***/ }),
+
 /***/ "./components/Searchbar.js":
 /*!*********************************!*\
   !*** ./components/Searchbar.js ***!
@@ -354,16 +513,17 @@ function (_React$Component) {
   _createClass(UserCard, [{
     key: "render",
     value: function render() {
-      var user = this.props.user;
+      var _this$props = this.props,
+          user = _this$props.user,
+          cardClick = _this$props.cardClick;
       var avatarUrl = user.avatar_url;
       var username = user.login;
       var userUrl = user.html_url;
       var repoRequestUrl = user.repos_url;
-      console.log('user: ', user);
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UserCardContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 52
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -371,20 +531,21 @@ function (_React$Component) {
         rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 53
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UserCardBody, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 55
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UserImg, {
         src: avatarUrl,
+        onClick: cardClick,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 56
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Username, {
@@ -392,7 +553,7 @@ function (_React$Component) {
         target: "_blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 57
         },
         __self: this
       }, username)));
@@ -404,10 +565,12 @@ function (_React$Component) {
 
 
 UserCard.defaultProps = {
-  user: {}
+  user: {},
+  cardClick: function cardClick() {}
 };
 UserCard.propTypes = {
-  user: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.object
+  user: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.object,
+  cardClick: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func
 };
 
 /***/ }),
@@ -428,21 +591,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_Searchbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Searchbar */ "./components/Searchbar.js");
-/* harmony import */ var _components_UserCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/UserCard */ "./components/UserCard.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next-redux-wrapper */ "next-redux-wrapper");
+/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_Searchbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Searchbar */ "./components/Searchbar.js");
+/* harmony import */ var _components_UserCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/UserCard */ "./components/UserCard.js");
+/* harmony import */ var _components_RepoCard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/RepoCard */ "./components/RepoCard.js");
+/* harmony import */ var _redux_modules_store__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../redux/modules/store */ "./redux/modules/store.js");
 var _jsxFileName = "/Users/gracieliu-fang/Code/blinkhealth/pages/home.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -452,8 +623,18 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _templateObject() {
+function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n    padding: 0rem 1.5rem;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    padding: 2rem 0rem;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -468,17 +649,35 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
+
+
 /* First Party */
 
 
 
+
+
 var githubToken = "access_token=c1c6964129310b0daa090a19c4dfdeedda2bd7b2";
-var PaddedCol = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"])(_templateObject());
+var PaddedRow = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"])(_templateObject());
+var PaddedCol = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"])(_templateObject2());
 
 var Home =
 /*#__PURE__*/
 function (_Component) {
   _inherits(Home, _Component);
+
+  _createClass(Home, null, [{
+    key: "getInitialProps",
+    value: function getInitialProps(_ref) {
+      var store = _ref.store,
+          pathname = _ref.pathname,
+          query = _ref.query;
+      return {
+        pathname: pathname
+      };
+    }
+  }]);
 
   function Home(props) {
     var _this;
@@ -507,6 +706,17 @@ function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleUserCardClick", function (user) {
+      console.log('in handleUserCardClick: ', user);
+
+      _this.setState({
+        currentUser: user
+      });
+
+      next_router__WEBPACK_IMPORTED_MODULE_5___default.a.push("".concat(_this.props.pathname, "/").concat(user.login)); // push router to /username
+      // make api request to repo url
+    });
+
     _this.state = {
       searchTerm: '',
       users: [],
@@ -522,43 +732,47 @@ function (_Component) {
           searchTerm = _this$state.searchTerm,
           users = _this$state.users;
       var handleSearchTermChange = this.handleSearchTermChange,
-          handleSearchbarSubmit = this.handleSearchbarSubmit;
+          handleSearchbarSubmit = this.handleSearchbarSubmit,
+          handleUserCardClick = this.handleUserCardClick,
+          props = this.props;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 84
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PaddedRow, {
         center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 85
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        xs: 12,
+        sm: 8,
+        md: 6,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 86
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_6__["default"], {
         searchTerm: searchTerm,
         onChange: handleSearchTermChange,
         onSubmit: handleSearchbarSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 87
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 94
         },
         __self: this
       }, users && users.map(function (user, i) {
-        console.log(user);
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PaddedCol, {
           xs: 6,
           sm: 4,
@@ -567,14 +781,17 @@ function (_Component) {
           key: i,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 70
+            lineNumber: 97
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_UserCard__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_UserCard__WEBPACK_IMPORTED_MODULE_7__["default"], {
           user: user,
+          cardClick: function cardClick() {
+            return handleUserCardClick(user);
+          },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 98
           },
           __self: this
         }));
@@ -583,9 +800,73 @@ function (_Component) {
   }]);
 
   return Home;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]); // export const mapStateToProps = ({ store }) => {
+//     return {...store}
+// }
+// export const mapDispatchToProps = (dispatch) => {
+//     return {
+//         updateSearchTerm: bindActionCreators(updateSearchTerm, dispatch)
+//     }
+// }
+// export default withRedux(makeStore, mapStateToProps, mapDispatchToProps)(Home)
 
 
+
+
+/***/ }),
+
+/***/ "./redux/modules/store.js":
+/*!********************************!*\
+  !*** ./redux/modules/store.js ***!
+  \********************************/
+/*! exports provided: initialState, updateSearchTerm, makeStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSearchTerm", function() { return updateSearchTerm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeStore", function() { return makeStore; });
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* Action Types */
+
+var UPDATE_SEARCHTERM = 'home: update search term';
+var initialState = {
+  searchTerm: '',
+  users: [],
+  currentUser: {}
+};
+function updateSearchTerm(searchTerm) {
+  return {
+    type: UPDATE_SEARCHTERM,
+    payload: searchTerm
+  };
+}
+
+var reducer = function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  switch (action.type) {
+    case UPDATE_SEARCHTERM:
+      return _objectSpread({}, state, {
+        searchTerm: action.payload
+      });
+
+    default:
+      return state;
+  }
+};
+
+var makeStore = function makeStore(initialState) {
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer, initialState);
+};
 
 /***/ }),
 
@@ -598,6 +879,28 @@ function (_Component) {
 
 module.exports = __webpack_require__(/*! ./pages/home.js */"./pages/home.js");
 
+
+/***/ }),
+
+/***/ "next-redux-wrapper":
+/*!*************************************!*\
+  !*** external "next-redux-wrapper" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-redux-wrapper");
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
 
 /***/ }),
 
@@ -631,6 +934,17 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("react-styled-flexboxgrid");
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "redux" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
 
 /***/ }),
 

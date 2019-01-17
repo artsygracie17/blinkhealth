@@ -2,18 +2,34 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-styled-flexboxgrid'
 import styled from 'styled-components'
+import { bindActionCreators } from 'redux'
+import withRedux from 'next-redux-wrapper'
+import Router from 'next/router'
 
 /* First Party */
 import Searchbar from '../components/Searchbar' 
 import UserCard from '../components/UserCard'
+import RepoCard from '../components/RepoCard'
+import { 
+    makeStore,
+    updateSearchTerm
+} from '../redux/modules/store'
+
 
 const githubToken = "access_token=c1c6964129310b0daa090a19c4dfdeedda2bd7b2";
 
+const PaddedRow = styled(Row)`
+    padding: 2rem 0rem;
+`
 const PaddedCol = styled(Col)`
     padding: 0rem 1.5rem;
 `
 
 export default class Home extends Component {
+
+    static getInitialProps({ store, pathname, query }) {
+        return { pathname }
+    }
 
     constructor(props) {
         super(props)
@@ -43,6 +59,16 @@ export default class Home extends Component {
             })
     }
 
+    handleUserCardClick = (user) => {
+        console.log('in handleUserCardClick: ', user)
+        this.setState({
+            currentUser: user
+        })
+        Router.push(`${this.props.pathname}/${user.login}`)
+        // push router to /username
+        // make api request to repo url
+    }
+
     render () {
         const { 
             searchTerm,
@@ -50,26 +76,28 @@ export default class Home extends Component {
         } = this.state
         const { 
             handleSearchTermChange,
-            handleSearchbarSubmit
+            handleSearchbarSubmit,
+            handleUserCardClick,
+            props
         } = this
         return (
             <Grid>
-                <Row center='xs'>
-                    <Col>
+                <PaddedRow center='xs'>
+                    <Col xs={12} sm={8} md={6}>
                         <Searchbar
                             searchTerm={searchTerm}
                             onChange={handleSearchTermChange}
                             onSubmit={handleSearchbarSubmit}
                         />
                     </Col>
-                </Row>
+                </PaddedRow>
                 <Row>
                     { users && users.map((user, i) => {
-                        console.log(user)
                         return (
                             <PaddedCol xs={6} sm={4} md={3} lg={2} key={i}>
                                 <UserCard
                                     user={user}
+                                    cardClick={() => handleUserCardClick(user) }
                                 />
                             </PaddedCol>
                         )
@@ -80,3 +108,15 @@ export default class Home extends Component {
     }
 
 }
+
+// export const mapStateToProps = ({ store }) => {
+//     return {...store}
+// }
+
+// export const mapDispatchToProps = (dispatch) => {
+//     return {
+//         updateSearchTerm: bindActionCreators(updateSearchTerm, dispatch)
+//     }
+// }
+
+// export default withRedux(makeStore, mapStateToProps, mapDispatchToProps)(Home)
