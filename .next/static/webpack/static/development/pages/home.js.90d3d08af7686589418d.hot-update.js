@@ -135,7 +135,7 @@ function (_Component) {
         currentUser: user
       });
 
-      next_router__WEBPACK_IMPORTED_MODULE_5___default.a.push("".concat(_this.props.pathname, "/").concat(user.login)); // push router to /username
+      next_router__WEBPACK_IMPORTED_MODULE_5___default.a.push('/user'); // push router to /username
       // make api request to repo url
     });
 
@@ -171,7 +171,9 @@ function (_Component) {
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
-        xs: 8,
+        xs: 12,
+        sm: 8,
+        md: 6,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 86
@@ -255,4 +257,4 @@ function (_Component) {
 /***/ })
 
 })
-//# sourceMappingURL=home.js.77dbafb34794f8483ece.hot-update.js.map
+//# sourceMappingURL=home.js.90d3d08af7686589418d.hot-update.js.map

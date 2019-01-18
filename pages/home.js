@@ -64,7 +64,10 @@ export default class Home extends Component {
         this.setState({
             currentUser: user
         })
-        Router.push(`${this.props.pathname}/${user.login}`)
+        Router.push({
+            pathname: '/user',
+            query: { name: user.login}
+        })
         // push router to /username
         // make api request to repo url
     }
