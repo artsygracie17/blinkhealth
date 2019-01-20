@@ -26,7 +26,9 @@ const PaddedCol = styled(Col)`
 class Home extends Component {
 
     static getInitialProps({ store, pathname, query }) {
+        console
         // const { makeStore: { searchTerm } } = store.getState()
+        // console.log('initial searchterm: ', searchTerm)
         return { pathname }
     }
 
@@ -40,10 +42,10 @@ class Home extends Component {
     // }
 
     handleSearchTermChange = (event) => {
-        // this.setState({
-        //     searchTerm: event.target.value
-        // })
-        this.props.updateSearchTerm()
+        console.log(event.target)
+        this.setState({
+            searchTerm: event.target.value
+        })
     }
 
     handleSearchbarSubmit = (searchTerm) => {
@@ -88,13 +90,15 @@ class Home extends Component {
             users,
             updateSearchTerm
         } = props
+
+        console.log('home search: ', searchTerm)
         return (
             <Grid>
                 <PaddedRow center='xs'>
                     <Col xs={12} sm={8} md={6}>
                         <Searchbar
                             searchTerm={searchTerm}
-                            onChange={() => handleSearchTermChange(searchTerm)}
+                            onChange={updateSearchTerm}
                             onSubmit={handleSearchbarSubmit}
                         />
                     </Col>
@@ -129,4 +133,4 @@ export const mapDispatchToProps = (dispatch) => {
 
 // export default withRedux(makeStore, mapStateToProps, mapDispatchToProps)(Home)
 
-export default connect(makeStore, mapStateToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

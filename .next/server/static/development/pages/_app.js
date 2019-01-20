@@ -349,7 +349,9 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Searchbar).call(this, props));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (event) {
-      _this.props.onChange(event);
+      _this.props.onChange(event.target.value);
+
+      console.log('searchterm: ', _this.state.searchTerm);
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSubmit", function (event) {
@@ -372,13 +374,13 @@ function (_React$Component) {
         onSubmit: this.handleSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 72
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(InputWrapper, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 73
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(SearchInput, {
@@ -388,7 +390,7 @@ function (_React$Component) {
         onChange: this.handleChange,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 74
         },
         __self: this
       })));
@@ -877,10 +879,11 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Home)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSearchTermChange", function (event) {
-      // this.setState({
-      //     searchTerm: event.target.value
-      // })
-      _this.props.updateSearchTerm();
+      console.log(event.target);
+
+      _this.setState({
+        searchTerm: event.target.value
+      });
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSearchbarSubmit", function (searchTerm) {
@@ -929,17 +932,18 @@ function (_Component) {
       var searchTerm = props.searchTerm,
           users = props.users,
           updateSearchTerm = props.updateSearchTerm;
+      console.log('home search: ', searchTerm);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
+          lineNumber: 96
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PaddedRow, {
         center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 97
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
@@ -948,24 +952,22 @@ function (_Component) {
         md: 6,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 94
+          lineNumber: 98
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_7__["default"], {
         searchTerm: searchTerm,
-        onChange: function onChange() {
-          return handleSearchTermChange(searchTerm);
-        },
+        onChange: updateSearchTerm,
         onSubmit: handleSearchbarSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 99
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 106
         },
         __self: this
       }, users && users.map(function (user, i) {
@@ -977,7 +979,7 @@ function (_Component) {
           key: i,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 105
+            lineNumber: 109
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_UserCard__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -987,7 +989,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 106
+            lineNumber: 110
           },
           __self: this
         }));
@@ -999,7 +1001,9 @@ function (_Component) {
       var store = _ref.store,
           pathname = _ref.pathname,
           query = _ref.query;
-      // const { makeStore: { searchTerm } } = store.getState()
+      console; // const { makeStore: { searchTerm } } = store.getState()
+      // console.log('initial searchterm: ', searchTerm)
+
       return {
         pathname: pathname
       };
@@ -1027,7 +1031,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 }; // export default withRedux(makeStore, mapStateToProps, mapDispatchToProps)(Home)
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(_redux_modules_store__WEBPACK_IMPORTED_MODULE_10__["makeStore"], mapStateToProps)(Home));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, mapDispatchToProps)(Home));
 
 /***/ }),
 
@@ -1035,13 +1039,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /*!********************************!*\
   !*** ./redux/modules/store.js ***!
   \********************************/
-/*! exports provided: initialState, updateSearchTerm, makeStore */
+/*! exports provided: initialState, updateSearchTerm, reducer, makeStore */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSearchTerm", function() { return updateSearchTerm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeStore", function() { return makeStore; });
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
@@ -1054,17 +1059,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var UPDATE_SEARCHTERM = 'home: update search term';
 var initialState = {
-  searchTerm: '',
+  searchTerm: 'test',
   users: [],
   currentUser: {}
 };
 function updateSearchTerm(searchTerm) {
+  console.log('s: ', searchTerm);
   return {
     type: UPDATE_SEARCHTERM,
     payload: searchTerm
   };
 }
-
 var reducer = function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -1079,7 +1084,6 @@ var reducer = function reducer() {
       return state;
   }
 };
-
 var makeStore = function makeStore() {
   var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer, initialState);

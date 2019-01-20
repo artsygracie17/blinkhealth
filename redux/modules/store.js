@@ -5,19 +5,20 @@ const UPDATE_SEARCHTERM = 'home: update search term'
 
 
 export const initialState = {
-    searchTerm: '',
+    searchTerm: 'test',
     users: [],
     currentUser: {}
 }
 
 export function updateSearchTerm (searchTerm) {
+    console.log('s: ', searchTerm)
     return {
         type: UPDATE_SEARCHTERM,
         payload: searchTerm
     }
 }
 
-const reducer = (state = initialState, action = {}) => {
+export const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
         case UPDATE_SEARCHTERM:
             return {
@@ -29,6 +30,6 @@ const reducer = (state = initialState, action = {}) => {
     }   
 }
 
-export const makeStore = (initialState= {}) => {
+export const makeStore = (initialState = {}) => {
     return createStore(reducer, initialState)
 }
