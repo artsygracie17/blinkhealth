@@ -31,15 +31,15 @@ const UserImg = styled.img`
 
 const Username = styled.p`
     color: black;
-    font-size: 2rem;
+    font-size: 2.4rem;
     margin: 1rem;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     margin-bottom: 0.3rem;
 `
 
 const RepoCount = styled(Username)`
     color: gray;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     margin: 1rem;
     margin-top: 0.2rem;
 

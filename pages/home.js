@@ -19,7 +19,7 @@ import {
 const githubToken = "access_token=c1c6964129310b0daa090a19c4dfdeedda2bd7b2";
 
 const PaddedRow = styled(Row)`
-    padding: 2rem 0rem;
+    padding-top: 2rem;
 `
 const PaddedCol = styled(Col)`
     padding: 0rem 1.5rem;
@@ -62,6 +62,11 @@ class Home extends Component {
         return (
             <Grid>
                 <PaddedRow center='xs'>
+                    <Col>
+                        <h1> Github User Search </h1>
+                    </Col>
+                </PaddedRow>
+                <Row center='xs'>
                     <Col xs={12} sm={8} md={6}>
                         <Searchbar
                             searchTerm={searchTerm}
@@ -69,11 +74,11 @@ class Home extends Component {
                             onSubmit={handleSearchbarSubmit}
                         />
                     </Col>
-                </PaddedRow>
+                </Row>
                 <Row>
                     { users && users.map((user, i) => {
                         return (
-                            <PaddedCol xs={6} sm={4} md={3} lg={2} key={i}>
+                            <PaddedCol xs={6} sm={4} md={3} lg={3} key={i}>
                                 <UserCard
                                     user={user}
                                     cardClick={() => handleUserCardClick(user) }

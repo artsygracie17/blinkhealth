@@ -224,29 +224,29 @@ function (_React$Component) {
   _createClass(RepoCard, [{
     key: "render",
     value: function render() {
-      var repo = this.props.repo;
+      var props = this.props,
+          pluralize = this.pluralize;
+      var repo = props.repo;
       var repoName = repo.name;
       var repoUrl = repo.html_url;
       var language = repo.language;
       var issueCount = repo.open_issues_count;
-      console.log('repo: ', repo);
-      var pluralize = this.pluralize;
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 67
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardBody, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 68
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 69
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoName, {
@@ -254,49 +254,49 @@ function (_React$Component) {
         target: "_blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 70
         },
         __self: this
       }, repoName)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 72
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 73
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Label, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 69
-        },
-        __self: this
-      }, " ", issueCount, " ", pluralize('Pull Request', issueCount), " ")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 71
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 72
-        },
-        __self: this
-      }, " \u2022 ")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 74
         },
         __self: this
+      }, " ", issueCount, " ", pluralize('Pull Request', issueCount), " ")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 76
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 77
+        },
+        __self: this
+      }, " \u2022 ")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 79
+        },
+        __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Label, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75
+          lineNumber: 80
         },
         __self: this
       }, " ", language, " ")))));
@@ -375,7 +375,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n    color: gray;\n    font-size: 1.1rem;\n    margin: 1rem;\n    margin-top: 0.2rem;\n\n"]);
+  var data = _taggedTemplateLiteral(["\n    color: gray;\n    font-size: 1.4rem;\n    margin: 1rem;\n    margin-top: 0.2rem;\n\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -385,7 +385,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n    color: black;\n    font-size: 2rem;\n    margin: 1rem;\n    margin-top: 3rem;\n    margin-bottom: 0.3rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    color: black;\n    font-size: 2.4rem;\n    margin: 1rem;\n    margin-top: 2.5rem;\n    margin-bottom: 0.3rem;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;

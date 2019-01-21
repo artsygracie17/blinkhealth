@@ -292,7 +292,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n    color: gray;\n    padding: 1rem;\n    text-decoration: none;\n\n    &:hover {\n        cursor: pointer;\n        text-decoration: underline;\n    }\n\n"]);
+  var data = _taggedTemplateLiteral(["\n    color: black;\n    font-size: 1.3rem;\n    padding: 1rem;\n    text-decoration: none;\n\n    &:hover {\n        cursor: pointer;\n        text-decoration: underline;\n    }\n\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -302,7 +302,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n    border-radius: 0.2rem 0.2rem 0rem 0rem;\n    opacity: 1;\n    width: 100%;\n    height: 10rem;\n\n    &:hover {\n        cursor: pointer;\n    }\n"]);
+  var data = _taggedTemplateLiteral(["\n    margin-bottom: 0.2rem;\n    opacity: 1;\n    width: 100%;\n    height: 10rem;\n\n    &:hover {\n        cursor: pointer;\n    }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -312,7 +312,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    border: 1px solid lightgray;\n    border-radius: 0.2rem;\n    padding: 0rem;\n    width: 100%;\n    height: 100%;\n"]);
+  var data = _taggedTemplateLiteral(["\n    width: 10rem;\n    height: 100%;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -322,7 +322,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 12rem;\n    margin: 2rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 13rem;\n    margin: 3rem;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -366,7 +366,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UserCardContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 50
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -374,13 +374,13 @@ function (_React$Component) {
         rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 51
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UserCardBody, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 53
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UserImg, {
@@ -388,7 +388,7 @@ function (_React$Component) {
         onClick: cardClick,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 54
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Username, {
@@ -396,7 +396,7 @@ function (_React$Component) {
         target: "_blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 55
         },
         __self: this
       }, username)));
@@ -479,7 +479,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    padding: 2rem 0rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    padding-top: 2rem;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -570,12 +570,31 @@ function (_Component) {
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 66
+        },
+        __self: this
+      }, " Github User Search "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+        center: "xs",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
         xs: 12,
         sm: 8,
         md: 6,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 70
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -584,13 +603,13 @@ function (_Component) {
         onSubmit: handleSearchbarSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 71
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 78
         },
         __self: this
       }, users && users.map(function (user, i) {
@@ -598,11 +617,11 @@ function (_Component) {
           xs: 6,
           sm: 4,
           md: 3,
-          lg: 2,
+          lg: 3,
           key: i,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76
+            lineNumber: 81
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_UserCard__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -612,7 +631,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 77
+            lineNumber: 82
           },
           __self: this
         }));

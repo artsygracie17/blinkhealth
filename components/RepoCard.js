@@ -49,14 +49,19 @@ export default class RepoCard extends React.Component {
     }
 
     render () {
-        const { repo } = this.props
+        const {
+            props,
+            pluralize 
+        } = this
+        const { 
+            repo 
+        } = props
+
         const repoName = repo.name
         const repoUrl = repo.html_url
         const language = repo.language
         const issueCount = repo.open_issues_count
 
-        console.log('repo: ', repo)
-        const { pluralize } = this
 
         return (
             <RepoCardContainer>

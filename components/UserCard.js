@@ -5,20 +5,17 @@ import React from 'react'
 
 const UserCardContainer = styled.div`
     width: 100%;
-    height: 12rem;
-    margin: 2rem;
+    height: 13rem;
+    margin: 3rem;
 `
 
 const UserCardBody = styled.div`
-    border: 1px solid lightgray;
-    border-radius: 0.2rem;
-    padding: 0rem;
-    width: 100%;
+    width: 10rem;
     height: 100%;
 `
 
 const UserImg = styled.img`
-    border-radius: 0.2rem 0.2rem 0rem 0rem;
+    margin-bottom: 0.2rem;
     opacity: 1;
     width: 100%;
     height: 10rem;
@@ -29,7 +26,8 @@ const UserImg = styled.img`
 `
 
 const Username = styled.a`
-    color: gray;
+    color: black;
+    font-size: 1.3rem;
     padding: 1rem;
     text-decoration: none;
 
