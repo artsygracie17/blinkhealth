@@ -132,7 +132,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  appearance: none;\n  background-color: white;\n  border: 1px solid white;\n  border-radius: 0.2rem 0 0 0.2rem;\n  box-sizing: border-box;\n  color: black;\n  display: inline-flex;\n  flex-grow: 1;\n  font-family: inherit;\n  font-size: 1.25rem;\n  font-weight: 400;\n  height: 3rem;\n  line-height: 2rem;\n  padding-bottom: 0.5rem;\n  padding-left: 1rem;\n  padding-right: 0.5rem;\n  padding-top: 0.5rem;\n  width: 100%;\n  &:focus {\n    background-color: white;\n    outline: 0;\n    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  background-color: white;\n  border: 1px solid white;\n  border-radius: 0.2rem;\n  box-sizing: border-box;\n  color: black;\n  font-family: inherit;\n  font-size: 1.25rem;\n  height: 3rem;\n  line-height: 2rem;\n  padding-bottom: 0.5rem;\n  padding-left: 1rem;\n  padding-right: 0.5rem;\n  padding-top: 0.5rem;\n  width: 100%;\n  &:focus {\n    background-color: white;\n    outline: 0;\n    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -142,7 +142,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  align-items: center;\n  border-radius: 0.2rem;\n  box-shadow: 0 0 5px lightgray;\n  display: flex;\n  margin-bottom: 3rem;\n  width: 100%;\n"]);
+  var data = _taggedTemplateLiteral(["\n  border-radius: 0.2rem;\n  box-shadow: 0 0 5px lightgray;\n  margin-bottom: 3rem;\n  width: 100%;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -215,13 +215,13 @@ function (_React$Component) {
         onSubmit: this.handleSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 66
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(InputWrapper, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 67
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(SearchInput, {
@@ -231,7 +231,7 @@ function (_React$Component) {
         onChange: this.handleChange,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 68
         },
         __self: this
       })));
@@ -292,7 +292,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n    color: black;\n    font-size: 1.3rem;\n    padding: 1rem;\n    text-decoration: none;\n\n    &:hover {\n        cursor: pointer;\n        text-decoration: underline;\n    }\n\n"]);
+  var data = _taggedTemplateLiteral(["\n    color: black;\n    font-size: 1.3rem;\n    padding-top: 1rem;\n    text-decoration: none;\n\n    &:hover {\n        cursor: pointer;\n        text-decoration: underline;\n    }\n\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -302,7 +302,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n    margin-bottom: 0.2rem;\n    opacity: 1;\n    width: 100%;\n    height: 10rem;\n\n    &:hover {\n        cursor: pointer;\n    }\n"]);
+  var data = _taggedTemplateLiteral(["\n    border-radius: 0.2rem;\n    height: 10rem;\n    margin-bottom: 0.2rem;\n    opacity: 1;\n    width: 100%;\n\n    &:hover {\n        cursor: pointer;\n    }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -322,7 +322,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 13rem;\n    margin: 3rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 13rem;\n    margin: 3rem;\n    margin-left: 0rem;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -361,26 +361,16 @@ function (_React$Component) {
           cardClick = _this$props.cardClick;
       var avatarUrl = user.avatar_url;
       var username = user.login;
-      var userUrl = user.html_url;
-      var repoRequestUrl = user.repos_url;
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UserCardContainer, {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 50
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
-        href: "https://fonts.googleapis.com/icon?family=Material+Icons",
-        rel: "stylesheet",
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UserCardBody, {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 51
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UserCardBody, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 53
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(UserImg, {
@@ -388,15 +378,14 @@ function (_React$Component) {
         onClick: cardClick,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 52
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Username, {
-        href: userUrl,
-        target: "_blank",
+        onClick: cardClick,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 53
         },
         __self: this
       }, username)));
@@ -469,7 +458,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    padding: 0rem 1.5rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    font-size: 2.5rem;\n    margin-bottom: 0.6rem;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -479,7 +468,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    padding-top: 2rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    padding-top: 2rem;\n    padding-bottom: 0rem;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -504,7 +493,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var githubToken = "access_token=c1c6964129310b0daa090a19c4dfdeedda2bd7b2";
 var PaddedRow = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"])(_templateObject());
-var PaddedCol = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"])(_templateObject2());
+var Title = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.p(_templateObject2());
 
 var Home =
 /*#__PURE__*/
@@ -525,7 +514,6 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Home)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSearchbarSubmit", function (searchTerm) {
-      console.log('in handlesubmit: ', searchTerm);
       var urlRequest = "https://api.github.com/search/users?q=".concat(searchTerm);
       fetch(urlRequest).then(function (res) {
         return res.json();
@@ -538,8 +526,7 @@ function (_Component) {
       _this.props.populateCurrentUser(user);
 
       next_router__WEBPACK_IMPORTED_MODULE_5___default.a.push({
-        pathname: '/user' // query: { name: user.login}
-
+        pathname: '/user'
       });
     });
 
@@ -554,7 +541,6 @@ function (_Component) {
           props = this.props;
       var searchTerm = props.searchTerm,
           users = props.users,
-          currentUser = props.currentUser,
           updateSearchTerm = props.updateSearchTerm;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
         __source: {
@@ -563,7 +549,7 @@ function (_Component) {
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PaddedRow, {
-        center: "xs",
+        start: "xs",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 64
@@ -575,14 +561,14 @@ function (_Component) {
           lineNumber: 65
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 66
         },
         __self: this
       }, " Github User Search "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
-        center: "xs",
+        start: "xs",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 69
@@ -613,11 +599,11 @@ function (_Component) {
         },
         __self: this
       }, users && users.map(function (user, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PaddedCol, {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
           xs: 6,
           sm: 4,
           md: 3,
-          lg: 3,
+          lg: 2,
           key: i,
           __source: {
             fileName: _jsxFileName,

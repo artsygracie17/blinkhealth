@@ -4,7 +4,6 @@ import { Grid, Row, Col } from 'react-styled-flexboxgrid'
 import styled from 'styled-components'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Router from 'next/router'
 import 'isomorphic-fetch'
 
 import {
@@ -17,10 +16,6 @@ const PaddedRow = styled(Row)`
     border-bottom: 1px solid rgba(205, 205, 205, 0.5);
     padding-top: 4rem;
     margin-bottom: 2rem;
-`
-
-const PaddedCol = styled(Col)`
-    margin-left: 3rem;
 `
 
 const UserImg = styled.img`

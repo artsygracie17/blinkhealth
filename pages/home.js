@@ -20,15 +20,17 @@ const githubToken = "access_token=c1c6964129310b0daa090a19c4dfdeedda2bd7b2";
 
 const PaddedRow = styled(Row)`
     padding-top: 2rem;
+    padding-bottom: 0rem;
 `
-const PaddedCol = styled(Col)`
-    padding: 0rem 1.5rem;
+
+const Title = styled.p`
+    font-size: 2.5rem;
+    margin-bottom: 0.6rem;
 `
 
 class Home extends Component {
 
     handleSearchbarSubmit = (searchTerm) => {
-        console.log('in handlesubmit: ', searchTerm)
         let urlRequest = `https://api.github.com/search/users?q=${searchTerm}`
         fetch(urlRequest)
             .then(res => res.json())
@@ -40,8 +42,7 @@ class Home extends Component {
     handleUserCardClick = (user) => {
         this.props.populateCurrentUser(user)
         Router.push({
-            pathname: '/user',
-            // query: { name: user.login}
+            pathname: '/user'
         })
     }
 
@@ -55,18 +56,17 @@ class Home extends Component {
         const {
             searchTerm,
             users,
-            currentUser,
             updateSearchTerm
         } = props
 
         return (
             <Grid>
-                <PaddedRow center='xs'>
+                <PaddedRow start='xs'>
                     <Col>
-                        <h1> Github User Search </h1>
+                        <Title> Github User Search </Title>
                     </Col>
                 </PaddedRow>
-                <Row center='xs'>
+                <Row start='xs'>
                     <Col xs={12} sm={8} md={6}>
                         <Searchbar
                             searchTerm={searchTerm}
@@ -78,12 +78,12 @@ class Home extends Component {
                 <Row>
                     { users && users.map((user, i) => {
                         return (
-                            <PaddedCol xs={6} sm={4} md={3} lg={3} key={i}>
+                            <Col xs={6} sm={4} md={3} lg={2} key={i}>
                                 <UserCard
                                     user={user}
                                     cardClick={() => handleUserCardClick(user) }
                                 />
-                            </PaddedCol>
+                            </Col>
                         )
                     })}
                 </Row>

@@ -6,26 +6,20 @@ import React from 'react'
 /* First Party */
 
 const InputWrapper = styled.div`
-  align-items: center;
   border-radius: 0.2rem;
   box-shadow: 0 0 5px lightgray;
-  display: flex;
   margin-bottom: 3rem;
   width: 100%;
 `
 
 const SearchInput = styled.input.attrs({ type: 'text' })`
-  appearance: none;
   background-color: white;
   border: 1px solid white;
-  border-radius: 0.2rem 0 0 0.2rem;
+  border-radius: 0.2rem;
   box-sizing: border-box;
   color: black;
-  display: inline-flex;
-  flex-grow: 1;
   font-family: inherit;
   font-size: 1.25rem;
-  font-weight: 400;
   height: 3rem;
   line-height: 2rem;
   padding-bottom: 0.5rem;

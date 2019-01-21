@@ -133,18 +133,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n    color: gray;\n"]);
-
-  _templateObject5 = function _templateObject5() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n    color: black;\n    font-size: 1.5rem;\n    text-decoration: none;\n\n    &:hover {\n        cursor: pointer;\n        text-decoration: underline;\n    }\n\n"]);
+  var data = _taggedTemplateLiteral(["\n    color: gray;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -154,7 +144,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n    border-radius: 0.2rem 0.2rem 0rem 0rem;\n    opacity: 1;\n    width: 100%;\n    height: 10rem;\n\n    &:hover {\n        cursor: pointer;\n    }\n"]);
+  var data = _taggedTemplateLiteral(["\n    color: ", ";\n    font-size: 1.5rem;\n    text-decoration: none;\n\n    &:hover {\n        cursor: pointer;\n        text-decoration: underline;\n    }\n\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -190,11 +180,11 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+var blue = '#4285f4';
 var RepoCardContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject());
 var RepoCardBody = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject2());
-var RepoImg = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.img(_templateObject3());
-var RepoName = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.a(_templateObject4());
-var Label = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.p(_templateObject5());
+var RepoName = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.a(_templateObject3(), blue);
+var Label = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.p(_templateObject4());
 
 var RepoCard =
 /*#__PURE__*/
@@ -234,19 +224,19 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 58
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardBody, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 59
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 60
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoName, {
@@ -254,49 +244,49 @@ function (_React$Component) {
         target: "_blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 61
         },
         __self: this
       }, repoName)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 63
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 64
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Label, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 65
         },
         __self: this
-      }, " ", issueCount, " ", pluralize('Pull Request', issueCount), " ")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+      }, " ", issueCount, " ", pluralize('Pull Request', issueCount), " ")), language && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 68
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 69
         },
         __self: this
       }, " \u2022 ")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 72
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Label, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
+          lineNumber: 73
         },
         __self: this
       }, " ", language, " ")))));
@@ -339,12 +329,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "react-redux");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
-/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _redux_modules_store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../redux/modules/store */ "./redux/modules/store.js");
-/* harmony import */ var _components_RepoCard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/RepoCard */ "./components/RepoCard.js");
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _redux_modules_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../redux/modules/store */ "./redux/modules/store.js");
+/* harmony import */ var _components_RepoCard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/RepoCard */ "./components/RepoCard.js");
 
 var _jsxFileName = "/Users/gracieliu-fang/Code/blinkhealth/pages/user.js";
 
@@ -374,18 +362,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n    color: gray;\n    font-size: 1.4rem;\n    margin: 1rem;\n    margin-top: 0.2rem;\n\n"]);
-
-  _templateObject5 = function _templateObject5() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n    color: black;\n    font-size: 2.4rem;\n    margin: 1rem;\n    margin-top: 2.5rem;\n    margin-bottom: 0.3rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    color: gray;\n    font-size: 1.4rem;\n    margin: 1rem;\n    margin-top: 0.2rem;\n\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -395,7 +373,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n    border-radius: 0.2rem;\n    height: 10rem;\n    opacity: 1;\n"]);
+  var data = _taggedTemplateLiteral(["\n    color: black;\n    font-size: 2.4rem;\n    margin: 1rem;\n    margin-top: 2.5rem;\n    margin-bottom: 0.3rem;\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -405,7 +383,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    margin-left: 3rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    border-radius: 0.2rem;\n    height: 10rem;\n    opacity: 1;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -435,12 +413,10 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
 var PaddedRow = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Row"])(_templateObject());
-var PaddedCol = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"])(_templateObject2());
-var UserImg = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.img(_templateObject3());
-var Username = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p(_templateObject4());
-var RepoCount = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(Username)(_templateObject5());
+var UserImg = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.img(_templateObject2());
+var Username = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p(_templateObject3());
+var RepoCount = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(Username)(_templateObject4());
 
 var User =
 /*#__PURE__*/
@@ -466,65 +442,65 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Grid"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 71
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(PaddedRow, {
         start: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 72
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 73
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(UserImg, {
         src: avatarUrl,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 74
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 77
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Username, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 78
         },
         __self: this
       }, " ", username, " "), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(RepoCount, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 79
         },
         __self: this
       }, " ", repos.length, " Repositories "))), repos && repos.map(function (repo, i) {
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Row"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89
+            lineNumber: 84
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 90
+            lineNumber: 85
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_RepoCard__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_RepoCard__WEBPACK_IMPORTED_MODULE_8__["default"], {
           repo: repo,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 91
+            lineNumber: 86
           },
           __self: this
         })));
@@ -549,7 +525,7 @@ function (_Component) {
                 return fetch(urlRequest).then(function (res) {
                   return res.json();
                 }).then(function (repos) {
-                  store.dispatch(Object(_redux_modules_store__WEBPACK_IMPORTED_MODULE_8__["populateRepos"])(repos));
+                  store.dispatch(Object(_redux_modules_store__WEBPACK_IMPORTED_MODULE_7__["populateRepos"])(repos));
                 });
 
               case 5:
@@ -582,7 +558,7 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    populateRepos: Object(redux__WEBPACK_IMPORTED_MODULE_4__["bindActionCreators"])(_redux_modules_store__WEBPACK_IMPORTED_MODULE_8__["populateRepos"], dispatch)
+    populateRepos: Object(redux__WEBPACK_IMPORTED_MODULE_4__["bindActionCreators"])(_redux_modules_store__WEBPACK_IMPORTED_MODULE_7__["populateRepos"], dispatch)
   };
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(mapStateToProps)(User));
@@ -714,17 +690,6 @@ module.exports = require("@babel/runtime/regenerator");
 /***/ (function(module, exports) {
 
 module.exports = require("isomorphic-fetch");
-
-/***/ }),
-
-/***/ "next/router":
-/*!******************************!*\
-  !*** external "next/router" ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("next/router");
 
 /***/ }),
 

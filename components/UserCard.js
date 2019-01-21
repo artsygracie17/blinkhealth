@@ -7,6 +7,7 @@ const UserCardContainer = styled.div`
     width: 100%;
     height: 13rem;
     margin: 3rem;
+    margin-left: 0rem;
 `
 
 const UserCardBody = styled.div`
@@ -15,10 +16,11 @@ const UserCardBody = styled.div`
 `
 
 const UserImg = styled.img`
+    border-radius: 0.2rem;
+    height: 10rem;
     margin-bottom: 0.2rem;
     opacity: 1;
     width: 100%;
-    height: 10rem;
 
     &:hover {
         cursor: pointer;
@@ -28,7 +30,7 @@ const UserImg = styled.img`
 const Username = styled.a`
     color: black;
     font-size: 1.3rem;
-    padding: 1rem;
+    padding-top: 1rem;
     text-decoration: none;
 
     &:hover {
@@ -43,16 +45,12 @@ export default class UserCard extends React.Component {
         const { user, cardClick } = this.props
         const avatarUrl = user.avatar_url
         const username = user.login
-        const userUrl = user.html_url
-        const repoRequestUrl = user.repos_url
 
         return (
             <UserCardContainer>
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-                rel="stylesheet"/>
                 <UserCardBody> 
                     <UserImg src={avatarUrl} onClick={cardClick}></UserImg>
-                    <Username href={userUrl} target='_blank'>{username}</Username>
+                    <Username onClick={cardClick}>{username}</Username>
                 </UserCardBody>
             </UserCardContainer>
         )

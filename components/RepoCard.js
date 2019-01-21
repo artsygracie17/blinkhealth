@@ -2,7 +2,9 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import React from 'react'
-import { Grid, Row, Col } from 'react-styled-flexboxgrid'
+import { Row, Col } from 'react-styled-flexboxgrid'
+
+const blue = '#4285f4'
 
 const RepoCardContainer = styled.div`
     width: 40rem;
@@ -15,19 +17,8 @@ const RepoCardBody = styled.div`
     width: 100%;
 `
 
-const RepoImg = styled.img`
-    border-radius: 0.2rem 0.2rem 0rem 0rem;
-    opacity: 1;
-    width: 100%;
-    height: 10rem;
-
-    &:hover {
-        cursor: pointer;
-    }
-`
-
 const RepoName = styled.a`
-    color: black;
+    color: ${blue};
     font-size: 1.5rem;
     text-decoration: none;
 
@@ -73,9 +64,11 @@ export default class RepoCard extends React.Component {
                         <Col>
                             <Label> {issueCount} {pluralize('Pull Request', issueCount)} </Label>
                         </Col>
+                        { language && 
                         <Col>
                             <p> • </p>
                         </Col>
+                        }
                         <Col>
                             <Label> {language} </Label>
                         </Col>
