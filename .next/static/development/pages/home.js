@@ -15159,10 +15159,8 @@ function (_Component) {
       _this.props.populateCurrentUser(user);
 
       next_router__WEBPACK_IMPORTED_MODULE_5___default.a.push({
-        pathname: '/user',
-        query: {
-          name: user.login
-        }
+        pathname: '/user' // query: { name: user.login}
+
       });
     });
 
@@ -15372,7 +15370,7 @@ var makeStore = function makeStore(initialState) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*****************************!*\
   !*** multi ./pages/home.js ***!
   \*****************************/
@@ -15397,5 +15395,5 @@ module.exports = dll_831a3634f66cb1dada0c;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js"]]]));;
+},[[3,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=home.js.map

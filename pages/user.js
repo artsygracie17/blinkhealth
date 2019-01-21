@@ -13,6 +13,38 @@ import {
 import RepoCard from '../components/RepoCard'
 
 
+const PaddedRow = styled(Row)`
+    border-bottom: 1px solid rgba(205, 205, 205, 0.5);
+    padding-top: 4rem;
+    margin-bottom: 2rem;
+`
+
+const PaddedCol = styled(Col)`
+    margin-left: 3rem;
+`
+
+const UserImg = styled.img`
+    border-radius: 0.2rem;
+    height: 10rem;
+    opacity: 1;
+`
+
+const Username = styled.p`
+    color: black;
+    font-size: 2rem;
+    margin: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 0.3rem;
+`
+
+const RepoCount = styled(Username)`
+    color: gray;
+    font-size: 1rem;
+    margin: 1rem;
+    margin-top: 0rem;
+
+`
+
 class User extends Component {
 
     static async getInitialProps({ store, pathname, asPath}) {
@@ -42,8 +74,21 @@ class User extends Component {
 
         console.log('currentUser: ', currentUser)
         console.log('repos: ', repos)
+
+        const avatarUrl = currentUser.avatar_url
+        const username = currentUser.login
         return (
             <Grid>
+                <PaddedRow start='xs'>
+                    <Col>
+                        <UserImg src={avatarUrl} />
+                    </Col>
+
+                    <Col>
+                        <Username> {username} </Username>
+                        <RepoCount> {repos.length} Repositories </RepoCount>
+                    </Col>
+                </PaddedRow>
                     { repos && repos.map((repo, i) => {
                         return (
                             <Row>

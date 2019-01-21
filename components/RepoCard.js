@@ -2,19 +2,17 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import React from 'react'
+import { Grid, Row, Col } from 'react-styled-flexboxgrid'
 
 const RepoCardContainer = styled.div`
-    width: 100%;
-    height: 12rem;
-    margin: 2rem;
+    width: 40rem;
 `
 
 const RepoCardBody = styled.div`
-    border: 1px solid lightgray;
-    border-radius: 0.2rem;
-    padding: 0rem;
+    border-bottom: 1px solid lightgray;
+    padding: 1rem;
+    padding-bottom: 0.5rem;
     width: 100%;
-    height: 100%;
 `
 
 const RepoImg = styled.img`
@@ -29,8 +27,8 @@ const RepoImg = styled.img`
 `
 
 const RepoName = styled.a`
-    color: gray;
-    padding: 1rem;
+    color: black;
+    font-size: 1.5rem;
     text-decoration: none;
 
     &:hover {
@@ -38,6 +36,10 @@ const RepoName = styled.a`
         text-decoration: underline;
     }
 
+`
+
+const Label = styled.p`
+    color: gray;
 `
 
 export default class RepoCard extends React.Component {
@@ -55,7 +57,18 @@ export default class RepoCard extends React.Component {
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
                 rel="stylesheet"/>
                 <RepoCardBody> 
-                    <RepoName href={repoUrl} target='_blank'>{repoName}</RepoName>
+                    <Row>
+                        <RepoName href={repoUrl} target='_blank'>{repoName}</RepoName>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Label> {issueCount} Pull Requests </Label>
+                        </Col>
+                        <Col>
+                            <Label> {language} </Label>
+                        </Col>
+                    </Row>
+
                 </RepoCardBody>
             </RepoCardContainer>
         )

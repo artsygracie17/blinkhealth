@@ -41,7 +41,7 @@ class Home extends Component {
         this.props.populateCurrentUser(user)
         Router.push({
             pathname: '/user',
-            query: { name: user.login}
+            // query: { name: user.login}
         })
     }
 

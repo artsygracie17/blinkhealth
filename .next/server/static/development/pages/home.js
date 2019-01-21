@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -538,10 +538,8 @@ function (_Component) {
       _this.props.populateCurrentUser(user);
 
       next_router__WEBPACK_IMPORTED_MODULE_5___default.a.push({
-        pathname: '/user',
-        query: {
-          name: user.login
-        }
+        pathname: '/user' // query: { name: user.login}
+
       });
     });
 
@@ -733,7 +731,7 @@ var makeStore = function makeStore(initialState) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*****************************!*\
   !*** multi ./pages/home.js ***!
   \*****************************/

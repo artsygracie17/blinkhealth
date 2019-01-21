@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -109,6 +109,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-styled-flexboxgrid */ "react-styled-flexboxgrid");
+/* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "/Users/gracieliu-fang/Code/blinkhealth/components/RepoCard.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -129,8 +131,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n    color: gray;\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n    color: gray;\n    padding: 1rem;\n    text-decoration: none;\n\n    &:hover {\n        cursor: pointer;\n        text-decoration: underline;\n    }\n\n"]);
+  var data = _taggedTemplateLiteral(["\n    color: black;\n    font-size: 1.5rem;\n    text-decoration: none;\n\n    &:hover {\n        cursor: pointer;\n        text-decoration: underline;\n    }\n\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -150,7 +162,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    border: 1px solid lightgray;\n    border-radius: 0.2rem;\n    padding: 0rem;\n    width: 100%;\n    height: 100%;\n"]);
+  var data = _taggedTemplateLiteral(["\n    border-bottom: 1px solid lightgray;\n    padding: 1rem;\n    padding-bottom: 0.5rem;\n    width: 100%;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -160,7 +172,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    width: 100%;\n    height: 12rem;\n    margin: 2rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    width: 40rem;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -175,10 +187,12 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var RepoCardContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject());
 var RepoCardBody = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject2());
 var RepoImg = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.img(_templateObject3());
 var RepoName = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.a(_templateObject4());
+var Label = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.p(_templateObject5());
 
 var RepoCard =
 /*#__PURE__*/
@@ -203,7 +217,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 56
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -211,13 +225,19 @@ function (_React$Component) {
         rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 57
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardBody, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 59
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 60
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoName, {
@@ -225,10 +245,40 @@ function (_React$Component) {
         target: "_blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 61
         },
         __self: this
-      }, repoName)));
+      }, repoName)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 64
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Label, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65
+        },
+        __self: this
+      }, " ", issueCount, " Pull Requests ")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 67
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Label, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 68
+        },
+        __self: this
+      }, " ", language, " ")))));
     }
   }]);
 
@@ -303,6 +353,58 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n    color: gray;\n    font-size: 1rem;\n    margin: 1rem;\n    margin-top: 0rem;\n\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n    color: black;\n    font-size: 2rem;\n    margin: 1rem;\n    margin-top: 3rem;\n    margin-bottom: 0.3rem;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n    border-radius: 0.2rem;\n    height: 10rem;\n    opacity: 1;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n    margin-left: 3rem;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    border-bottom: 1px solid rgba(205, 205, 205, 0.5);\n    padding-top: 4rem;\n    margin-bottom: 2rem;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 /* Third Party */
 
 
@@ -313,6 +415,11 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+var PaddedRow = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Row"])(_templateObject());
+var PaddedCol = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"])(_templateObject2());
+var UserImg = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.img(_templateObject3());
+var Username = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p(_templateObject4());
+var RepoCount = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(Username)(_templateObject5());
 
 var User =
 /*#__PURE__*/
@@ -335,30 +442,70 @@ function (_Component) {
           repos = props.repos;
       console.log('currentUser: ', currentUser);
       console.log('repos: ', repos);
+      var avatarUrl = currentUser.avatar_url;
+      var username = currentUser.login;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Grid"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 81
         },
         __self: this
-      }, repos && repos.map(function (repo, i) {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(PaddedRow, {
+        start: "xs",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 82
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 83
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(UserImg, {
+        src: avatarUrl,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 84
+        },
+        __self: this
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 87
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Username, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 88
+        },
+        __self: this
+      }, " ", username, " "), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(RepoCount, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89
+        },
+        __self: this
+      }, " ", repos.length, " Repositories "))), repos && repos.map(function (repo, i) {
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Row"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 49
+            lineNumber: 94
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 50
+            lineNumber: 95
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_RepoCard__WEBPACK_IMPORTED_MODULE_9__["default"], {
           repo: repo,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 96
           },
           __self: this
         })));
@@ -519,7 +666,7 @@ var makeStore = function makeStore(initialState) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!*****************************!*\
   !*** multi ./pages/user.js ***!
   \*****************************/
