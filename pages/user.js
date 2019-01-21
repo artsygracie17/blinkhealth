@@ -39,9 +39,9 @@ const Username = styled.p`
 
 const RepoCount = styled(Username)`
     color: gray;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin: 1rem;
-    margin-top: 0rem;
+    margin-top: 0.2rem;
 
 `
 
