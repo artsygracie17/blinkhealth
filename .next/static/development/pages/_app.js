@@ -11720,7 +11720,7 @@ function (_App) {
 /*!********************************!*\
   !*** ./redux/modules/store.js ***!
   \********************************/
-/*! exports provided: initialState, updateSearchTerm, populateUsers, reducer, makeStore */
+/*! exports provided: initialState, updateSearchTerm, populateUsers, populateCurrentUser, populateRepos, reducer, makeStore */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11728,6 +11728,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSearchTerm", function() { return updateSearchTerm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "populateUsers", function() { return populateUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "populateCurrentUser", function() { return populateCurrentUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "populateRepos", function() { return populateRepos; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeStore", function() { return makeStore; });
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
@@ -11740,10 +11742,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var UPDATE_SEARCHTERM = 'home: update search term';
 var POPULATE_USERS = 'home: populate users';
+var POPULATE_CURRENT_USER = 'home: populate current user';
+var POPULATE_REPOS = 'current user: populate repos';
 var initialState = {
   searchTerm: '',
   users: [],
-  currentUser: {}
+  currentUser: {},
+  repos: []
 };
 function updateSearchTerm(searchTerm) {
   return {
@@ -11755,6 +11760,18 @@ function populateUsers(users) {
   return {
     type: POPULATE_USERS,
     payload: users
+  };
+}
+function populateCurrentUser(user) {
+  return {
+    type: POPULATE_CURRENT_USER,
+    payload: user
+  };
+}
+function populateRepos(repos) {
+  return {
+    type: POPULATE_REPOS,
+    payload: repos
   };
 }
 var reducer = function reducer() {
@@ -11770,6 +11787,16 @@ var reducer = function reducer() {
     case POPULATE_USERS:
       return _objectSpread({}, state, {
         users: action.payload
+      });
+
+    case POPULATE_CURRENT_USER:
+      return _objectSpread({}, state, {
+        currentUser: action.payload
+      });
+
+    case POPULATE_REPOS:
+      return _objectSpread({}, state, {
+        repos: action.payload
       });
 
     default:

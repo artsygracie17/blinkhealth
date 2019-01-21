@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -178,7 +178,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var RepoCardContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject());
 var RepoCardBody = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject2());
 var RepoImg = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.img(_templateObject3());
-var Reponame = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.a(_templateObject4());
+var RepoName = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.a(_templateObject4());
 
 var RepoCard =
 /*#__PURE__*/
@@ -195,11 +195,11 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var repo = this.props.repo;
-      var avatarUrl = repo.avatar_url;
-      var reponame = repo.login;
+      var repoName = repo.name;
       var repoUrl = repo.html_url;
-      var repoRequestUrl = Repo.repos_url;
-      console.log('Repo: ', Repo);
+      var language = repo.language;
+      var issueCount = repo.open_issues_count;
+      console.log('repo: ', repo);
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardContainer, {
         __source: {
           fileName: _jsxFileName,
@@ -220,22 +220,15 @@ function (_React$Component) {
           lineNumber: 57
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoImg, {
-        src: avatarUrl,
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoName, {
+        href: repoUrl,
+        target: "_blank",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 58
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Reponame, {
-        href: repoUrl,
-        target: "_blank",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 59
-        },
-        __self: this
-      }, reponame)));
+      }, repoName)));
     }
   }]);
 
@@ -256,40 +249,55 @@ RepoCard.propTypes = {
 /*!***********************!*\
   !*** ./pages/user.js ***!
   \***********************/
-/*! exports provided: default */
+/*! exports provided: mapStateToProps, mapDispatchToProps, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return User; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-styled-flexboxgrid */ "react-styled-flexboxgrid");
-/* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "redux");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next-redux-wrapper */ "next-redux-wrapper");
-/* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _components_RepoCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/RepoCard */ "./components/RepoCard.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapStateToProps", function() { return mapStateToProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapDispatchToProps", function() { return mapDispatchToProps; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-styled-flexboxgrid */ "react-styled-flexboxgrid");
+/* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! isomorphic-fetch */ "isomorphic-fetch");
+/* harmony import */ var isomorphic_fetch__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(isomorphic_fetch__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _redux_modules_store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../redux/modules/store */ "./redux/modules/store.js");
+/* harmony import */ var _components_RepoCard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/RepoCard */ "./components/RepoCard.js");
+
 var _jsxFileName = "/Users/gracieliu-fang/Code/blinkhealth/pages/user.js";
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -304,48 +312,214 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var User =
 /*#__PURE__*/
 function (_Component) {
   _inherits(User, _Component);
 
-  _createClass(User, null, [{
-    key: "getInitialProps",
-    value: function getInitialProps(_ref) {
-      var pathname = _ref.pathname;
-      return {
-        pathname: pathname
-      };
-    }
-  }]);
-
-  function User(props) {
+  function User() {
     _classCallCheck(this, User);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(User).call(this, props));
+    return _possibleConstructorReturn(this, _getPrototypeOf(User).apply(this, arguments));
   }
 
   _createClass(User, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      var props = this.props;
+      var pathname = props.pathname,
+          asPath = props.asPath,
+          currentUser = props.currentUser,
+          repos = props.repos;
+      console.log('currentUser: ', currentUser);
+      console.log('repos: ', repos);
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Grid"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 46
         },
         __self: this
-      }, " user test ");
+      }, repos && repos.map(function (repo, i) {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 49
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 50
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_RepoCard__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          repo: repo,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 51
+          },
+          __self: this
+        })));
+      }));
     }
+  }], [{
+    key: "getInitialProps",
+    value: function () {
+      var _getInitialProps = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref) {
+        var store, pathname, asPath, _store$getState, currentUser, urlRequest;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                store = _ref.store, pathname = _ref.pathname, asPath = _ref.asPath;
+                _store$getState = store.getState(), currentUser = _store$getState.currentUser;
+                console.log(currentUser); // make repos api call here
+
+                urlRequest = currentUser.repos_url;
+                _context.next = 6;
+                return fetch(urlRequest).then(function (res) {
+                  return res.json();
+                }).then(function (repos) {
+                  store.dispatch(Object(_redux_modules_store__WEBPACK_IMPORTED_MODULE_8__["populateRepos"])(repos));
+                });
+
+              case 6:
+                return _context.abrupt("return", {
+                  pathname: pathname,
+                  asPath: asPath
+                });
+
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function getInitialProps(_x) {
+        return _getInitialProps.apply(this, arguments);
+      }
+
+      return getInitialProps;
+    }()
   }]);
 
   return User;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
-
+var mapStateToProps = function mapStateToProps(state) {
+  return _objectSpread({}, state);
+};
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    populateRepos: Object(redux__WEBPACK_IMPORTED_MODULE_4__["bindActionCreators"])(_redux_modules_store__WEBPACK_IMPORTED_MODULE_8__["populateRepos"], dispatch)
+  };
+};
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(mapStateToProps)(User));
 
 /***/ }),
 
-/***/ 4:
+/***/ "./redux/modules/store.js":
+/*!********************************!*\
+  !*** ./redux/modules/store.js ***!
+  \********************************/
+/*! exports provided: initialState, updateSearchTerm, populateUsers, populateCurrentUser, populateRepos, reducer, makeStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSearchTerm", function() { return updateSearchTerm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "populateUsers", function() { return populateUsers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "populateCurrentUser", function() { return populateCurrentUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "populateRepos", function() { return populateRepos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeStore", function() { return makeStore; });
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* Action Types */
+
+var UPDATE_SEARCHTERM = 'home: update search term';
+var POPULATE_USERS = 'home: populate users';
+var POPULATE_CURRENT_USER = 'home: populate current user';
+var POPULATE_REPOS = 'current user: populate repos';
+var initialState = {
+  searchTerm: '',
+  users: [],
+  currentUser: {},
+  repos: []
+};
+function updateSearchTerm(searchTerm) {
+  return {
+    type: UPDATE_SEARCHTERM,
+    payload: searchTerm
+  };
+}
+function populateUsers(users) {
+  return {
+    type: POPULATE_USERS,
+    payload: users
+  };
+}
+function populateCurrentUser(user) {
+  return {
+    type: POPULATE_CURRENT_USER,
+    payload: user
+  };
+}
+function populateRepos(repos) {
+  return {
+    type: POPULATE_REPOS,
+    payload: repos
+  };
+}
+var reducer = function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  switch (action.type) {
+    case UPDATE_SEARCHTERM:
+      return _objectSpread({}, state, {
+        searchTerm: action.payload
+      });
+
+    case POPULATE_USERS:
+      return _objectSpread({}, state, {
+        users: action.payload
+      });
+
+    case POPULATE_CURRENT_USER:
+      return _objectSpread({}, state, {
+        currentUser: action.payload
+      });
+
+    case POPULATE_REPOS:
+      return _objectSpread({}, state, {
+        repos: action.payload
+      });
+
+    default:
+      return state;
+  }
+};
+var makeStore = function makeStore(initialState) {
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer, initialState);
+};
+
+/***/ }),
+
+/***/ 3:
 /*!*****************************!*\
   !*** multi ./pages/user.js ***!
   \*****************************/
@@ -357,14 +531,25 @@ module.exports = __webpack_require__(/*! ./pages/user.js */"./pages/user.js");
 
 /***/ }),
 
-/***/ "next-redux-wrapper":
-/*!*************************************!*\
-  !*** external "next-redux-wrapper" ***!
-  \*************************************/
+/***/ "@babel/runtime/regenerator":
+/*!*********************************************!*\
+  !*** external "@babel/runtime/regenerator" ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("next-redux-wrapper");
+module.exports = require("@babel/runtime/regenerator");
+
+/***/ }),
+
+/***/ "isomorphic-fetch":
+/*!***********************************!*\
+  !*** external "isomorphic-fetch" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("isomorphic-fetch");
 
 /***/ }),
 
@@ -398,6 +583,17 @@ module.exports = require("prop-types");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
 
 /***/ }),
 

@@ -28,7 +28,7 @@ const RepoImg = styled.img`
     }
 `
 
-const Reponame = styled.a`
+const RepoName = styled.a`
     color: gray;
     padding: 1rem;
     text-decoration: none;
@@ -43,20 +43,19 @@ const Reponame = styled.a`
 export default class RepoCard extends React.Component {
     render () {
         const { repo } = this.props
-        const avatarUrl = repo.avatar_url
-        const reponame = repo.login
+        const repoName = repo.name
         const repoUrl = repo.html_url
-        const repoRequestUrl = Repo.repos_url
+        const language = repo.language
+        const issueCount = repo.open_issues_count
 
-        console.log('Repo: ', Repo)
+        console.log('repo: ', repo)
 
         return (
             <RepoCardContainer>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
                 rel="stylesheet"/>
                 <RepoCardBody> 
-                    <RepoImg src={avatarUrl}></RepoImg>
-                    <Reponame href={repoUrl} target='_blank'>{reponame}</Reponame>
+                    <RepoName href={repoUrl} target='_blank'>{repoName}</RepoName>
                 </RepoCardBody>
             </RepoCardContainer>
         )

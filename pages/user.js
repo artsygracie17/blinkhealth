@@ -3,24 +3,71 @@ import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-styled-flexboxgrid'
 import styled from 'styled-components'
 import { bindActionCreators } from 'redux'
-import withRedux from 'next-redux-wrapper'
+import { connect } from 'react-redux'
 import Router from 'next/router'
+import 'isomorphic-fetch'
 
+import {
+    populateRepos
+} from '../redux/modules/store'
 import RepoCard from '../components/RepoCard'
 
 
-export default class User extends Component {
-    static getInitialProps({ pathname }) {
-        return { pathname }
-    }
+class User extends Component {
 
-    constructor(props) {
-        super(props)
+    static async getInitialProps({ store, pathname, asPath}) {
+        const { currentUser } = store.getState()
+        console.log(currentUser)
+        // make repos api call here
+        const urlRequest = currentUser.repos_url
+        await fetch(urlRequest)
+            .then(res => res.json())
+            .then(repos => {
+                store.dispatch(populateRepos(repos))
+            })
+        return { pathname, asPath }
     }
 
     render () {
+        const {
+            props
+        } = this
+
+        const {
+            pathname,
+            asPath,
+            currentUser,
+            repos
+        } = props
+
+        console.log('currentUser: ', currentUser)
+        console.log('repos: ', repos)
         return (
-            <h1> user test </h1>
+            <Grid>
+                    { repos && repos.map((repo, i) => {
+                        return (
+                            <Row>
+                                <Col>
+                                    <RepoCard
+                                        repo={repo}
+                                    />
+                                </Col>
+                            </Row>
+                        )
+                    })}
+            </Grid>
         )
     }
 }
+
+export const mapStateToProps = (state) => {
+    return { ...state }
+}
+
+export const mapDispatchToProps = (dispatch) => {
+    return {
+        populateRepos: bindActionCreators(populateRepos, dispatch)
+    }
+}
+
+export default connect(mapStateToProps)(User)
