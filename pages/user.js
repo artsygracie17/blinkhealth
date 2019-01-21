@@ -49,8 +49,6 @@ class User extends Component {
 
     static async getInitialProps({ store, pathname, asPath}) {
         const { currentUser } = store.getState()
-        console.log(currentUser)
-        // make repos api call here
         const urlRequest = currentUser.repos_url
         await fetch(urlRequest)
             .then(res => res.json())
@@ -71,9 +69,6 @@ class User extends Component {
             currentUser,
             repos
         } = props
-
-        console.log('currentUser: ', currentUser)
-        console.log('repos: ', repos)
 
         const avatarUrl = currentUser.avatar_url
         const username = currentUser.login

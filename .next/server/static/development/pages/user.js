@@ -123,13 +123,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject5() {
   var data = _taggedTemplateLiteral(["\n    color: gray;\n"]);
@@ -200,9 +202,23 @@ function (_React$Component) {
   _inherits(RepoCard, _React$Component);
 
   function RepoCard() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, RepoCard);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(RepoCard).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RepoCard)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "pluralize", function (word, count) {
+      return count === 1 ? word : "".concat(word, "s");
+    });
+
+    return _this;
   }
 
   _createClass(RepoCard, [{
@@ -214,30 +230,23 @@ function (_React$Component) {
       var language = repo.language;
       var issueCount = repo.open_issues_count;
       console.log('repo: ', repo);
+      var pluralize = this.pluralize;
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 62
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
-        href: "https://fonts.googleapis.com/icon?family=Material+Icons",
-        rel: "stylesheet",
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardBody, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoCardBody, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 63
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 64
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(RepoName, {
@@ -245,37 +254,49 @@ function (_React$Component) {
         target: "_blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 65
         },
         __self: this
       }, repoName)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 67
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Label, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 65
-        },
-        __self: this
-      }, " ", issueCount, " Pull Requests ")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 67
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Label, {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 68
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Label, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69
+        },
+        __self: this
+      }, " ", issueCount, " ", pluralize('Pull Request', issueCount), " ")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 71
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 72
+        },
+        __self: this
+      }, " \u2022 ")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 74
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Label, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 75
         },
         __self: this
       }, " ", language, " ")))));
@@ -440,72 +461,70 @@ function (_Component) {
           asPath = props.asPath,
           currentUser = props.currentUser,
           repos = props.repos;
-      console.log('currentUser: ', currentUser);
-      console.log('repos: ', repos);
       var avatarUrl = currentUser.avatar_url;
       var username = currentUser.login;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Grid"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 76
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(PaddedRow, {
         start: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 77
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 78
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(UserImg, {
         src: avatarUrl,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 79
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87
+          lineNumber: 82
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Username, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88
+          lineNumber: 83
         },
         __self: this
       }, " ", username, " "), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(RepoCount, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 89
+          lineNumber: 84
         },
         __self: this
       }, " ", repos.length, " Repositories "))), repos && repos.map(function (repo, i) {
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Row"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 94
+            lineNumber: 89
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_2__["Col"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 95
+            lineNumber: 90
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_RepoCard__WEBPACK_IMPORTED_MODULE_9__["default"], {
           repo: repo,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 96
+            lineNumber: 91
           },
           __self: this
         })));
@@ -525,23 +544,21 @@ function (_Component) {
               case 0:
                 store = _ref.store, pathname = _ref.pathname, asPath = _ref.asPath;
                 _store$getState = store.getState(), currentUser = _store$getState.currentUser;
-                console.log(currentUser); // make repos api call here
-
                 urlRequest = currentUser.repos_url;
-                _context.next = 6;
+                _context.next = 5;
                 return fetch(urlRequest).then(function (res) {
                   return res.json();
                 }).then(function (repos) {
                   store.dispatch(Object(_redux_modules_store__WEBPACK_IMPORTED_MODULE_8__["populateRepos"])(repos));
                 });
 
-              case 6:
+              case 5:
                 return _context.abrupt("return", {
                   pathname: pathname,
                   asPath: asPath
                 });
 
-              case 7:
+              case 6:
               case "end":
                 return _context.stop();
             }

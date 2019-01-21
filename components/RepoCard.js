@@ -43,6 +43,11 @@ const Label = styled.p`
 `
 
 export default class RepoCard extends React.Component {
+
+    pluralize = (word, count) => {
+        return count===1 ? word : `${word}s`
+    }
+
     render () {
         const { repo } = this.props
         const repoName = repo.name
@@ -51,18 +56,20 @@ export default class RepoCard extends React.Component {
         const issueCount = repo.open_issues_count
 
         console.log('repo: ', repo)
+        const { pluralize } = this
 
         return (
             <RepoCardContainer>
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-                rel="stylesheet"/>
                 <RepoCardBody> 
                     <Row>
                         <RepoName href={repoUrl} target='_blank'>{repoName}</RepoName>
                     </Row>
                     <Row>
                         <Col>
-                            <Label> {issueCount} Pull Requests </Label>
+                            <Label> {issueCount} {pluralize('Pull Request', issueCount)} </Label>
+                        </Col>
+                        <Col>
+                            <p> • </p>
                         </Col>
                         <Col>
                             <Label> {language} </Label>
