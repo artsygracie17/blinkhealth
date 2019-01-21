@@ -26,10 +26,11 @@ const PaddedCol = styled(Col)`
 class Home extends Component {
 
     static getInitialProps({ store, pathname, query }) {
-        console
-        // const { makeStore: { searchTerm } } = store.getState()
+        console.log('store: ', store)
+        const { searchTerm } = store.getState()
+        console.log('initial props searchTerm: ', searchTerm)
         // console.log('initial searchterm: ', searchTerm)
-        return { pathname }
+        return { pathname, searchTerm }
     }
 
     // constructor(props) {
@@ -121,8 +122,8 @@ class Home extends Component {
 
 }
 
-export const mapStateToProps = ({ store }) => {
-    return { ...store }
+export const mapStateToProps = ({ searchTerm }) => {
+    return { searchTerm }
 }
 
 export const mapDispatchToProps = (dispatch) => {
@@ -130,7 +131,5 @@ export const mapDispatchToProps = (dispatch) => {
         updateSearchTerm: bindActionCreators(updateSearchTerm, dispatch)
     }
 }
-
-// export default withRedux(makeStore, mapStateToProps, mapDispatchToProps)(Home)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

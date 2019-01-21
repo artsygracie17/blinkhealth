@@ -349,9 +349,11 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Searchbar).call(this, props));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (event) {
+      event.preventDefault();
+
       _this.props.onChange(event.target.value);
 
-      console.log('searchterm: ', _this.state.searchTerm);
+      console.log('in searchbar handlChange: ', _this.state.searchTerm);
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSubmit", function (event) {
@@ -374,13 +376,13 @@ function (_React$Component) {
         onSubmit: this.handleSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 73
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(InputWrapper, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 74
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(SearchInput, {
@@ -390,7 +392,7 @@ function (_React$Component) {
         onChange: this.handleChange,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 75
         },
         __self: this
       })));
@@ -608,8 +610,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux_modules_store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../redux/modules/store */ "./redux/modules/store.js");
 var _jsxFileName = "/Users/gracieliu-fang/Code/blinkhealth/pages/home.js";
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -746,14 +746,14 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96
+          lineNumber: 97
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PaddedRow, {
         center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 98
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
@@ -762,7 +762,7 @@ function (_Component) {
         md: 6,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
+          lineNumber: 99
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -771,13 +771,13 @@ function (_Component) {
         onSubmit: handleSearchbarSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
+          lineNumber: 100
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 106
+          lineNumber: 107
         },
         __self: this
       }, users && users.map(function (user, i) {
@@ -789,7 +789,7 @@ function (_Component) {
           key: i,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 109
+            lineNumber: 110
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_UserCard__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -799,7 +799,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 110
+            lineNumber: 111
           },
           __self: this
         }));
@@ -811,11 +811,16 @@ function (_Component) {
       var store = _ref.store,
           pathname = _ref.pathname,
           query = _ref.query;
-      console; // const { makeStore: { searchTerm } } = store.getState()
-      // console.log('initial searchterm: ', searchTerm)
+      console.log('store: ', store);
+
+      var _store$getState = store.getState(),
+          searchTerm = _store$getState.searchTerm;
+
+      console.log('initial props searchTerm: ', searchTerm); // console.log('initial searchterm: ', searchTerm)
 
       return {
-        pathname: pathname
+        pathname: pathname,
+        searchTerm: searchTerm
       };
     } // constructor(props) {
     //     super(props)
@@ -832,15 +837,16 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 var mapStateToProps = function mapStateToProps(_ref2) {
-  var store = _ref2.store;
-  return _objectSpread({}, store);
+  var searchTerm = _ref2.searchTerm;
+  return {
+    searchTerm: searchTerm
+  };
 };
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     updateSearchTerm: Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])(_redux_modules_store__WEBPACK_IMPORTED_MODULE_10__["updateSearchTerm"], dispatch)
   };
-}; // export default withRedux(makeStore, mapStateToProps, mapDispatchToProps)(Home)
-
+};
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, mapDispatchToProps)(Home));
 
 /***/ }),
@@ -869,7 +875,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var UPDATE_SEARCHTERM = 'home: update search term';
 var initialState = {
-  searchTerm: 'test',
+  searchTerm: '',
   users: [],
   currentUser: {}
 };
@@ -886,6 +892,7 @@ var reducer = function reducer() {
 
   switch (action.type) {
     case UPDATE_SEARCHTERM:
+      console.log('in reducer: ', action.payload);
       return _objectSpread({}, state, {
         searchTerm: action.payload
       });
@@ -894,8 +901,7 @@ var reducer = function reducer() {
       return state;
   }
 };
-var makeStore = function makeStore() {
-  var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+var makeStore = function makeStore(initialState) {
   return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducer, initialState);
 };
 

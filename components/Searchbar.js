@@ -58,8 +58,9 @@ export default class Searchbar extends React.Component {
   }
 
   handleChange = (event) => {
+    event.preventDefault()
     this.props.onChange(event.target.value)
-    console.log('searchterm: ', this.state.searchTerm)
+    console.log('in searchbar handlChange: ', this.state.searchTerm)
   }
 
   handleSubmit = (event) => {
