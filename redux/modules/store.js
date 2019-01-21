@@ -2,6 +2,7 @@ import { createStore } from 'redux'
 
 /* Action Types */
 const UPDATE_SEARCHTERM = 'home: update search term'
+const POPULATE_USERS = 'home: populate users'
 
 
 export const initialState = {
@@ -11,20 +12,30 @@ export const initialState = {
 }
 
 export function updateSearchTerm (searchTerm) {
-    console.log('s: ', searchTerm)
     return {
         type: UPDATE_SEARCHTERM,
         payload: searchTerm
     }
 }
 
+export function populateUsers (users) {
+    return {
+        type: POPULATE_USERS,
+        payload: users
+    }
+}
+
 export const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
         case UPDATE_SEARCHTERM:
-            console.log('in reducer: ', action.payload)
             return {
                 ...state,
                 searchTerm: action.payload
+            }
+        case POPULATE_USERS:
+            return {
+                ...state,
+                users: action.payload
             }
         default:
             return state

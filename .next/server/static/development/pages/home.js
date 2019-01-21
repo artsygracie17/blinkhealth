@@ -352,8 +352,6 @@ function (_React$Component) {
       event.preventDefault();
 
       _this.props.onChange(event.target.value);
-
-      console.log('in searchbar handlChange: ', _this.state.searchTerm);
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSubmit", function (event) {
@@ -376,13 +374,13 @@ function (_React$Component) {
         onSubmit: this.handleSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 72
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(InputWrapper, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 73
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(SearchInput, {
@@ -392,7 +390,7 @@ function (_React$Component) {
         onChange: this.handleChange,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75
+          lineNumber: 74
         },
         __self: this
       })));
@@ -610,6 +608,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux_modules_store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../redux/modules/store */ "./redux/modules/store.js");
 var _jsxFileName = "/Users/gracieliu-fang/Code/blinkhealth/pages/home.js";
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -688,25 +688,13 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Home)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSearchTermChange", function (event) {
-      console.log(event.target);
-
-      _this.setState({
-        searchTerm: event.target.value
-      });
-    });
-
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSearchbarSubmit", function (searchTerm) {
       console.log('in handlesubmit: ', searchTerm);
       var urlRequest = "https://api.github.com/search/users?q=".concat(searchTerm);
       fetch(urlRequest).then(function (res) {
         return res.json();
       }).then(function (results) {
-        var users = results.items;
-
-        _this.setState({
-          users: users
-        });
+        _this.props.populateUsers(results.items);
       });
     });
 
@@ -731,29 +719,23 @@ function (_Component) {
   _createClass(Home, [{
     key: "render",
     value: function render() {
-      // const { 
-      //     searchTerm,
-      //     users
-      // } = this.state
-      var handleSearchTermChange = this.handleSearchTermChange,
-          handleSearchbarSubmit = this.handleSearchbarSubmit,
+      var handleSearchbarSubmit = this.handleSearchbarSubmit,
           handleUserCardClick = this.handleUserCardClick,
           props = this.props;
       var searchTerm = props.searchTerm,
           users = props.users,
           updateSearchTerm = props.updateSearchTerm;
-      console.log('home search: ', searchTerm);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 71
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PaddedRow, {
         center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
+          lineNumber: 72
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
@@ -762,7 +744,7 @@ function (_Component) {
         md: 6,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
+          lineNumber: 73
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -771,13 +753,13 @@ function (_Component) {
         onSubmit: handleSearchbarSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 74
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 107
+          lineNumber: 81
         },
         __self: this
       }, users && users.map(function (user, i) {
@@ -789,7 +771,7 @@ function (_Component) {
           key: i,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 110
+            lineNumber: 84
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_UserCard__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -799,7 +781,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 111
+            lineNumber: 85
           },
           __self: this
         }));
@@ -807,44 +789,21 @@ function (_Component) {
     }
   }], [{
     key: "getInitialProps",
-    value: function getInitialProps(_ref) {
-      var store = _ref.store,
-          pathname = _ref.pathname,
-          query = _ref.query;
-      console.log('store: ', store);
-
-      var _store$getState = store.getState(),
-          searchTerm = _store$getState.searchTerm;
-
-      console.log('initial props searchTerm: ', searchTerm); // console.log('initial searchterm: ', searchTerm)
-
-      return {
-        pathname: pathname,
-        searchTerm: searchTerm
-      };
-    } // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         searchTerm: '',
-    //         users: [],
-    //         currentUser: {}
-    //     }
-    // }
-
+    value: function getInitialProps() {
+      return;
+    }
   }]);
 
   return Home;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-var mapStateToProps = function mapStateToProps(_ref2) {
-  var searchTerm = _ref2.searchTerm;
-  return {
-    searchTerm: searchTerm
-  };
+var mapStateToProps = function mapStateToProps(state) {
+  return _objectSpread({}, state);
 };
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    updateSearchTerm: Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])(_redux_modules_store__WEBPACK_IMPORTED_MODULE_10__["updateSearchTerm"], dispatch)
+    updateSearchTerm: Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])(_redux_modules_store__WEBPACK_IMPORTED_MODULE_10__["updateSearchTerm"], dispatch),
+    populateUsers: Object(redux__WEBPACK_IMPORTED_MODULE_3__["bindActionCreators"])(_redux_modules_store__WEBPACK_IMPORTED_MODULE_10__["populateUsers"], dispatch)
   };
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, mapDispatchToProps)(Home));
@@ -855,13 +814,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /*!********************************!*\
   !*** ./redux/modules/store.js ***!
   \********************************/
-/*! exports provided: initialState, updateSearchTerm, reducer, makeStore */
+/*! exports provided: initialState, updateSearchTerm, populateUsers, reducer, makeStore */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateSearchTerm", function() { return updateSearchTerm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "populateUsers", function() { return populateUsers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducer", function() { return reducer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeStore", function() { return makeStore; });
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
@@ -874,16 +834,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* Action Types */
 
 var UPDATE_SEARCHTERM = 'home: update search term';
+var POPULATE_USERS = 'home: populate users';
 var initialState = {
   searchTerm: '',
   users: [],
   currentUser: {}
 };
 function updateSearchTerm(searchTerm) {
-  console.log('s: ', searchTerm);
   return {
     type: UPDATE_SEARCHTERM,
     payload: searchTerm
+  };
+}
+function populateUsers(users) {
+  return {
+    type: POPULATE_USERS,
+    payload: users
   };
 }
 var reducer = function reducer() {
@@ -892,9 +858,13 @@ var reducer = function reducer() {
 
   switch (action.type) {
     case UPDATE_SEARCHTERM:
-      console.log('in reducer: ', action.payload);
       return _objectSpread({}, state, {
         searchTerm: action.payload
+      });
+
+    case POPULATE_USERS:
+      return _objectSpread({}, state, {
+        users: action.payload
       });
 
     default:

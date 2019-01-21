@@ -11,7 +11,10 @@ import Router from 'next/router'
 import Searchbar from '../components/Searchbar' 
 import UserCard from '../components/UserCard'
 import RepoCard from '../components/RepoCard'
-import { makeStore, updateSearchTerm } from '../redux/modules/store'
+import { 
+    updateSearchTerm,
+    populateUsers
+} from '../redux/modules/store'
 
 
 const githubToken = "access_token=c1c6964129310b0daa090a19c4dfdeedda2bd7b2";
@@ -25,28 +28,8 @@ const PaddedCol = styled(Col)`
 
 class Home extends Component {
 
-    static getInitialProps({ store, pathname, query }) {
-        console.log('store: ', store)
-        const { searchTerm } = store.getState()
-        console.log('initial props searchTerm: ', searchTerm)
-        // console.log('initial searchterm: ', searchTerm)
-        return { pathname, searchTerm }
-    }
-
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         searchTerm: '',
-    //         users: [],
-    //         currentUser: {}
-    //     }
-    // }
-
-    handleSearchTermChange = (event) => {
-        console.log(event.target)
-        this.setState({
-            searchTerm: event.target.value
-        })
+    static getInitialProps() {
+        return
     }
 
     handleSearchbarSubmit = (searchTerm) => {
@@ -55,10 +38,7 @@ class Home extends Component {
         fetch(urlRequest)
             .then(res => res.json())
             .then(results => {
-                const users = results.items
-                this.setState({
-                    users: users
-                })
+                this.props.populateUsers(results.items)
             })
     }
 
@@ -75,12 +55,7 @@ class Home extends Component {
     }
 
     render () {
-        // const { 
-        //     searchTerm,
-        //     users
-        // } = this.state
         const { 
-            handleSearchTermChange,
             handleSearchbarSubmit,
             handleUserCardClick,
             props
@@ -92,7 +67,6 @@ class Home extends Component {
             updateSearchTerm
         } = props
 
-        console.log('home search: ', searchTerm)
         return (
             <Grid>
                 <PaddedRow center='xs'>
@@ -122,13 +96,14 @@ class Home extends Component {
 
 }
 
-export const mapStateToProps = ({ searchTerm }) => {
-    return { searchTerm }
+export const mapStateToProps = (state) => {
+    return { ...state }
 }
 
 export const mapDispatchToProps = (dispatch) => {
     return {
-        updateSearchTerm: bindActionCreators(updateSearchTerm, dispatch)
+        updateSearchTerm: bindActionCreators(updateSearchTerm, dispatch),
+        populateUsers: bindActionCreators(populateUsers, dispatch)
     }
 }
 
